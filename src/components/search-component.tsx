@@ -36,7 +36,7 @@ export const SearchComponent = () => {
                         </div>;
                     })}
                 </div>
-                <input className="input-search" value={search} onChange={onChange} type="text"></input>
+                <input placeholder="Search..." className="input-search" value={search} onChange={onChange} type="text"></input>
                 <button onClick={onClickHideButton} id="hide-button">
                     <Hide />
                 </button>
