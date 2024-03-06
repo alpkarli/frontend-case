@@ -1,38 +1,119 @@
 .App {
-  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.input-search {
+  border: 0;
+  border-radius: 5px;
+  caret-color: #97ce4c;
+  margin: 5px;
+  outline: 2px solid #97ce4c;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-container {
+  align-items: end;
+  border: #97ce4c 1px;
+  border-radius: 10px;
+  border-style: solid;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 350px;
+  padding: 8px;
+  width: 350px;
+}
+
+#hide-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 25px;
+  position: absolute;
+  left: 330px;
+  padding: 0;
+  width: 25px;
+}
+
+#hide-button svg {
+  background: none;
+  height: 25px;
+  width: 25px;
+}
+
+#x-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 25px;
+  padding: 5px;
+  width: 25px;
+}
+
+#x-button svg {
+  color: black;
+  height: 25px;
+  width: 25px;
+}
+
+.search-elements {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  padding: 8px;
+  text-align: left;
+  cursor: pointer;
+  background: #d5ebb6;
+  border: 1px solid #97ce4c;
 }
 
-.App-link {
-  color: #61dafb;
+.search-elements:first-child {
+  border-radius: 8px 8px 0 0 !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-elements:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+input[type=checkbox] {
+  accent-color: #97ce4c;
+}
+
+input[type=checkbox]:focus {
+  border-radius: 10px;
+  outline: 3px solid #f9e446;
+}
+
+.checkbox-container {
+  margin: 10px;
+}
+
+.selected-characters {
+  align-items: center;
+  background: #e9f6d8;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5px;
+  max-width: 140px;
+}
+
+.selected-character {
+  overflow: hidden;
+  padding: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+input:focus {
+  background-color: #f9e446;
+}
+
+button:focus {
+  border-radius: 10px;
+  outline: 3px solid #f9e446;
 }
