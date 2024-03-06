@@ -1,25 +1,8 @@
-import { useQuery, gql } from "@apollo/client";
 import { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { CharacterSchema, CustomControlProps } from "../utils/type";
 import { RiseLoader } from "react-spinners";
 import { InnerComponent } from "./inner-component";
-/* 
-const CHARACTER_QUERY = gql`
-    query Characters($name: String!) {
-        characters(page: 1, filter: {name: $name}) {
-            results {
-                id
-                name
-                image
-                episode {
-                    id,
-                    name
-                }
-            }
-        }
-    }
-`; */
 
 export const CustomControl = ({ search, selected, handleSelected, hidden }: CustomControlProps) => {
     const [page, setPage] = useState(1);
@@ -115,14 +98,6 @@ export const CustomControl = ({ search, selected, handleSelected, hidden }: Cust
             }
         }
     }
-
-    /* const { data, loading, error } = useQuery(CHARACTER_QUERY, {
-        variables: { page: page, name: search }
-    });
-
-    
-    if (loading) return <div>Loading....</div>;
-    if (error) return <pre>{error.message}</pre> */
 
     const refresh = () => {
         setResults([]);
