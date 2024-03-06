@@ -27,7 +27,7 @@ export const SearchComponent = () => {
     return (
         <>
             <div className="input-container">
-                <div>
+                <div className="selected-container">
                     {selected.map(character => {
                         return <div key={character.id} className="selected-characters"><span className="selected-character">{character.name}</span>
                             <button onClick={(event: any) => { event.preventDefault(); onClick(character); }} id="x-button">
@@ -36,10 +36,12 @@ export const SearchComponent = () => {
                         </div>;
                     })}
                 </div>
-                <input placeholder="Search..." className="input-search" value={search} onChange={onChange} type="text"></input>
-                <button onClick={onClickHideButton} id="hide-button">
-                    <Hide />
-                </button>
+                <div className="search-container">
+                    <input placeholder="Search..." className="input-search" value={search} onChange={onChange} type="text"></input>
+                    <button onClick={onClickHideButton} id="hide-button">
+                        <Hide />
+                    </button>
+                </div>
             </div>
             <CustomControl search={search} selected={selected} handleSelected={handleSelected} hidden={hidden}></CustomControl>
         </>
