@@ -58,6 +58,15 @@ export const CustomControl = ({ search, selected, handleSelected, hidden }: Cust
         fetchData();
     }, [search]);
 
+    useEffect(() => {
+        setResults(results.map((characters: CharacterSchema) => {
+            return {
+                ...characters,
+                checked: selected.find((c: CharacterSchema) => c.id === characters.id) ? true : false,
+            };
+        }));
+    }, [selected]);
+
     const fetchMoreData = async () => {
         setPage(page + 1);
 
@@ -92,7 +101,7 @@ export const CustomControl = ({ search, selected, handleSelected, hidden }: Cust
                 setResults(results => [...results, ...characters.data.characters.results.map((characters: CharacterSchema) => {
                     return {
                         ...characters,
-                        checked: false,
+                        checked: selected.find((c: CharacterSchema) => c.id === characters.id) ? true : false,
                     };
                 })]);
             }
@@ -125,7 +134,7 @@ export const CustomControl = ({ search, selected, handleSelected, hidden }: Cust
                     dataLength={results.length}
                     next={fetchMoreData}
                     hasMore={hasMore}
-                    loader={<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',height: 300}}><RiseLoader color="#97ce4c" /></div>}
+                    loader={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 300 }}><RiseLoader color="#97ce4c" /></div>}
                     endMessage={
                         <p style={{ textAlign: 'center', padding: 10 }}>
                             <b>Yay! You have seen it all</b>
